@@ -1,0 +1,42 @@
+<html>
+<meta charset="utf-8">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script>
+		var compareNumbers = function(e){
+			one = parseInt($("#one").val())
+			two = parseInt($("#two").val())
+			console.log(one)
+			console.log(two)
+			e.preventDefault();
+		var response = "Вы ввели " + one + "и " + two + " "
+		if(!isNAN(one) && !isNAN(two)){
+			if (one > two){
+			response +="Большим является " + one
+			}
+			else {
+				if (one == two){
+				response +="Эти числа равны"
+				}
+			else {
+				response +="Большим является " + two
+				}
+			}
+		}
+		else
+		{
+		response = "Одно или оба значения числом не являются"
+		}
+		$("#result").html(response)
+		}
+		</script>
+	</head>
+<body>
+<form>
+	<input id="one" type="textfield">
+	<input id="two" type="textfield">
+	<input type="submit" onclick="compareNumbers(event)">
+</form>
+<div id="result"></div>
+</body>
+</html>
