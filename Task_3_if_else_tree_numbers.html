@@ -1,0 +1,51 @@
+<html>
+<meta charset="utf-8">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+      var compareNumbers = function(e){
+        one = parseInt($("#one").val())
+        two = parseInt($("#two").val())
+        three = parseInt($("#three").val())
+        console.log(one)
+        console.log(two)
+        console.log(three)
+        e.preventDefault();
+        var response = "Вы ввели: " + one + ", " + two + " и " + three + ". "
+        var sum = one + two + three;
+        var diff = two - three;
+
+      
+        if (!isNaN(one) && !isNaN(two) && !isNaN(three)) {
+          if (one > 2) {
+            response +="Самма трех чисел: " + sum + "."
+          }
+           
+          else {
+            response += "Разность между вторым и третьим числами: " + diff + "."
+          }  
+        } 
+        
+        else {
+          response ="Одно или оба значения числом не является."
+        }
+           
+        $("#result").html(response)
+      }
+    </script>
+      
+  </head>
+  <body>
+    <p>Введите три числа. Если первое число больше двух, мы найдем их сумму, иначе мы найдем разность между вторым и третьим числами.</p>
+    <p>Источник: http://www.itmathrepetitor.ru/programmirovanie-zadachi-dlya-mladshikh/</p>
+
+    <form>
+      <input id="one" type="textfield">
+      <input id="two" type="textfield">
+      <input id="three" type="textfield">
+      <input type="submit" onclick="compareNumbers(event)">
+    </form>
+
+    <div id="result"></div>
+  </body>
+</html>

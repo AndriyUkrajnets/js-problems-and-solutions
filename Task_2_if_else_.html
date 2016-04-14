@@ -9,11 +9,11 @@
         console.log(one)
         console.log(two)
         e.preventDefault();
-      var response = "Вы ввели " + one + " " + "и " + two + " "
+      var response = "Вы ввели: " + one + " " + "и " + two + ". "
     
     if (!isNaN(one) && !isNaN(two) ) {
       if (one > two) {
-        response +="Большим является " + one
+        response += "Большим является: " + one + "."
       }
        
       else {
@@ -25,7 +25,7 @@
         }
       }  
     } else {
-        response ="Одно или оба значения числом не является. Please enter a numbers"
+        response ="Одно или оба значения числом не является."
     }
       
         
