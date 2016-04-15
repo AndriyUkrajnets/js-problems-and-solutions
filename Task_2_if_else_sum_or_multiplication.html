@@ -1,0 +1,41 @@
+<html>
+<meta charset="utf-8">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+    var compareNumbers = function(e){
+      one = parseInt($("#one").val())
+      two = parseInt($("#two").val())
+      console.log(one)
+      console.log(two)
+      e.preventDefault();
+      var response = "Вы ввели: " + one + " " + "и " + two + ". "
+      var sum = one + two
+      var multiplication = one * two
+  
+      if (!isNaN(one) && !isNaN(two) ) {
+        if (one != two) {
+          response += "Ети числа не равны, их сумма: " + sum + "."
+        }
+        else {
+          response +="Эти числа равны, их произведение: " + multiplication + "."
+        }  
+      } 
+      else {
+          response ="Одно или оба значения числом не является."
+      }
+      $("#result").html(response)
+    }
+    </script>
+  </head>
+  <body>
+    <p> Даны два числа. Если они не равны, то мы найдем их сумму, иначе мы найдем их произведение. 
+       Источник: http://www.itmathrepetitor.ru/programmirovanie-zadachi-dlya-mladshikh/ </p>
+    <form>
+      <input id="one" type="textfield">
+      <input id="two" type="textfield">
+      <input type="submit" onclick="compareNumbers(event)">
+    </form>
+    <div id="result"></div>
+  </body>
+</html>
