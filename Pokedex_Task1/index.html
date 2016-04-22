@@ -11,6 +11,13 @@
 <body>
   <div id="grid">
   <div id="pokedexHead">A list of pokemons ordered by ID</div>
+  <h1>Сколько покемонов вы хотите отобразить на странице?</h1>
+  <form>
+    <input id="field" type="number">
+    <input type="submit" onclick="setNumber(event)">
+  </form>
+
+<div id="result"></div>
     <div onclick="pokeList()" class="pokemon-list-button">
       <div class="show-list">Show list of pokemons</div>
     </div>

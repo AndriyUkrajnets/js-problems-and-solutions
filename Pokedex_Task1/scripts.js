@@ -1,10 +1,16 @@
+var setNumber = function(e){
+  field = parseInt($("#field").val())
+  console.log(field)
+  e.preventDefault();
+}
+
 var div = function(id, name) {
     resalt = '<div class="item" data-order="' + id + '">' + id + ".    " + name + '</div>'
     return resalt;
   }
 
 function pokeList(){
-  var visiblePokemonsCount = 10;
+  var visiblePokemonsCount = field;
     for(var i = 1; i <= visiblePokemonsCount; i++){
       $.get("https://pokeapi.co/api/v2/pokemon/"+i, function(data) {
         var listOfPokemons = div(data.id, data.name)
