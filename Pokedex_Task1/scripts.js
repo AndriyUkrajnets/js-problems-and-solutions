@@ -1,22 +1,27 @@
-var row = function(id, name) {
-    resalt = '<td> <font size="5px" face="Verdana" border-collapse="collapse">' + id + 
-    '</font></td><td><font size="5px" face="Verdana" border-collapse="collapse" margin-top="5px" margin-right="5px";>' + name + 
-    '</fomt></td>'
+var div = function(id, name) {
+    resalt = '<div class="item" data-order="' + id + '">' + id + ".    " + name + '</div>'
     return resalt;
   }
 
 function pokeList(){
-  var visiblePokemonsCount = 15;
+  var visiblePokemonsCount = 10;
     for(var i = 1; i <= visiblePokemonsCount; i++){
       $.get("https://pokeapi.co/api/v2/pokemon/"+i, function(data) {
-        var listOfPokemons = '<tr margin-top="10px" margin-right="15px";>' + row(data.id, data.name) + '</tr>'
-        $("#myTable").append(listOfPokemons);
+        var listOfPokemons = div(data.id, data.name)
+        $("#list-of-pokemons").append(listOfPokemons);
         })
     }
 }
 
-/*
-http://blog.rodneyrehm.de/archives/14-Sorting-Were-Doing-It-Wrong.html
-http://jsfiddle.net/UdvDD/
-http://tympanus.net/codrops/2009/10/03/33-javascript-solutions-for-sorting-tables/
-http://stackoverflow.com/questions/6133723/sort-divs-in-jquery-based-on-attribute-data-sort*/
+function sort(){
+  var listOfPokemonsById = getSorted('.item', 'data-order')
+  $("#list-of-pokemons-ordered-by-id").html(listOfPokemonsById);
+}
+
+function getSorted(selector, attrName) {
+    return $($(selector).toArray().sort(function(a, b){
+        var aVal = parseInt(a.getAttribute(attrName)),
+            bVal = parseInt(b.getAttribute(attrName));
+        return aVal - bVal;
+    }));
+}
