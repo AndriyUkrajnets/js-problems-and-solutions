@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <title>A list of pokemons</title>
+        <script type="text/javascript" src="scripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="css_styles.css">
+</head>
+
+<body>
+  <div id="grid">
+    <div id="pokedexHead">A list of pokemons with weights ordered by name</div>
+    <h1>How many pokemons you want to see?</h1>
+    <form>
+      <input id="field" type="number">
+      <input type="submit" onclick="setNumber(event)">
+    </form>
+
+    <div onclick="pokeList()" class="pokemon-list-button">
+      <div class="show-list">Show a list of pokemons</div>
+    </div>
+    <div onclick="sort()" class="pokemon-list-button">
+      <div class="show-list">Show list of pokemons orderet by name</div>
+    </div>
+    <div onclick="clean()" id="clean-button">
+      <div id="clean">Clean list</div>
+    </div>
+  </div>
+  <ol type="1." id="list-of-pokemons"></ol>
+</body>
+</html>
